@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 print('Content-type: text/html; charset=UTF-8\n')
-print('Hello World')
+import cgi
+
+form = cgi.FieldStorage()
+pageId = form['id'].value
+print(pageId)
 print('''<!doctype html>
 <html>
 <head>
@@ -8,7 +12,7 @@ print('''<!doctype html>
   <meta charset="utf-8">
 </head>
 <body>
-  <h1><a href="index.html">WEB</a></h1>
+  <h1><a href="index.py">WEB</a></h1>
   <ol>
     <li><a href="index.py?id=HTML">HTML</a></li>
     <li><a href="index.py?id=CSS">CSS</a></li>
@@ -19,4 +23,4 @@ print('''<!doctype html>
   </p>
 </body>
 </html>
-'''.format(title='Hello'))
+'''.format(title=pageId))
