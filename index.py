@@ -3,8 +3,11 @@ print('Content-type: text/html; charset=UTF-8\n')
 import cgi
 
 form = cgi.FieldStorage()
-pageId = form['id'].value
-print(pageId)
+if 'id' in form :
+    pageId = form['id'].value
+else:
+    pageId = 'Welcome'
+
 print('''<!doctype html>
 <html>
 <head>
