@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 print('Content-type: text/html; charset=UTF-8\n')
-import cgi
+import cgi, os
+
+files = os.listdir('data')
+print()
 
 form = cgi.FieldStorage()
 if 'id' in form :
