@@ -2,7 +2,7 @@
 print('Content-type: text/html; charset=UTF-8\n')
 import cgi, os
 
-files = os.listdir('data')
+files = os.listdir('./data')
 print()
 
 form = cgi.FieldStorage()
