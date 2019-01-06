@@ -8,6 +8,7 @@ description = form['description'].value
 
 files = open('data/'+title,'w') 
 files.write(description)
+files.close()
 
 #Redirection
 print('Location: index.py?id='+title)
