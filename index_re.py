@@ -5,7 +5,7 @@ import cgi, os
 dirfiles = os.listdir('data')
 listStr=''
 for item in dirfiles:
-  listStr=listStr+'<li><a href=index_re.py?id={name}>{name}</a></li>'
+  listStr=listStr+'<li><a href="index_re.py?id={name}">{name}</a></li>'.format(name=item)
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -23,11 +23,11 @@ print('''<!doctype html>
   <meta charset="utf-8">
 </head>
 <body>
-  <h1><a href="index.html">WEB</a></h1>
+  <h1><a href="index_re.py">WEB</a></h1>
   <ol>
     {listStr}
   </ol>
-  <a href='create_re.py>Create</a>
+  <a href='create_re.py'>Create</a>
   <h2>{title}</h2>
   <p>{desc}</p>
 </body>
