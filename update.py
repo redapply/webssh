@@ -28,7 +28,8 @@ print('''<!doctype html>
   </ol>
  
   <a href="create.py">create</a>
-  <form action='process_create.py' method='post'>
+  <form action='process_update.py' method='post'>
+    <input type='hidden' name = 'pageId' value="{form_default_tilte}">
     <p><input type="text" name='title' placeholder='title' value="{form_default_tilte}"></p>
     <p><textarea rows="4" name='description' placeholder='description'>{form_default_description}</textarea>
     <p><input type='submit'></p>
