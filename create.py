@@ -26,9 +26,13 @@ print('''<!doctype html>
   <ol>
     {listStr}
   </ol>
+ 
   <a href="create.py">create</a>
-  <h2>{title}</h2>
-  <p>{desc}</p>
+  <form action='process-create.py'>
+    <p><input type="text" name='title' placeholder='title'></p>
+    <p><textarea rows="4" name='description' placeholder='description'></textarea>
+    <p><input type='submit'></p>
+    </form>
  </body>
 </html>
 '''.format(title=pageId,desc=description,listStr=listStr))
