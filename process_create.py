@@ -4,10 +4,11 @@
 import cgi
 form = cgi.FieldStorage()
 title = form['title'].value
-descrtion = form['description'].value
+description = form['description'].value
 
 files = open('data/'+title,'w') 
-files.write(descrtion)
+files.write(description)
 
+#Redirection
 print('Location: index.py?id='+title)
 print()
