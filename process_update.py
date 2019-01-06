@@ -9,10 +9,10 @@ description = form['description'].value
 
 files = open('data/'+pageId,'w') 
 files.write(description)
-
-os.rename(pageId,title)
-
 files.close()
+os.rename('data/'+pageId,'data/'+title)
+
+
 
 
 #Redirection
