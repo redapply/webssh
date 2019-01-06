@@ -2,10 +2,14 @@
 print('Content-type: text/html; charset=UTF-8\n')
 import cgi, os
 
-files = os.listdir('data')
-listStr=''
-for item in files:
-    listStr= listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+def get_list():
+
+    files = os.listdir('data')
+    listStr=''
+    for item in files:
+        listStr= listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+    return listStr
+ 
 
 form = cgi.FieldStorage()
 if 'id' in form :
@@ -43,4 +47,4 @@ print('''<!doctype html>
   
  </body>
 </html>
-'''.format(title=pageId,desc=description,listStr=listStr,updatelink=update_link,delete_action=delete_action))
+'''.format(title=pageId,desc=description,listStr=get_list(),updatelink=update_link,delete_action=delete_action))
