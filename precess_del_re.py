@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+
+
+import cgi
+import os
+form = cgi.FieldStorage()
+pageId = form['pageId'].value
+
+os.remove('data/'+pageId)
+
+#Redirection
+print('Location: index_re.py')
+print()

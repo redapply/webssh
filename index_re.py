@@ -12,11 +12,18 @@ if 'id' in form:
   pageId = form['id'].value
   desc = open('data/'+pageId,'r').read()
   update_action = '<a href="update.py?id={}">update</a>'.format(pageId)
+  delete_action='''
+    <form action = 'process_del_re.py' method='post'>
+        <input type='hidden' name = 'pageId' value='{}'>
+        <input type = 'submit' value = 'delete'>
+    </form>
+  '''.format(pageId)
 
 else:
   pageId='Welcome to Web Python'
   desc = 'Hello, Python Web'
   update_action=''
+  delete_action=''
 
 
 print('''<!doctype html>
@@ -32,8 +39,9 @@ print('''<!doctype html>
   </ol>
   <a href='create_re.py'>Create</a>
   {update_action}
+  {delte_action}
   <h2>{title}</h2>
   <p>{desc}</p>
 </body>
 </html>
-'''.format(title=pageId,desc=desc,listStr=listStr,update_action=update_action))
+'''.format(title=pageId,desc=desc,listStr=listStr,update_action=update_action,delete_action=delete_action))
