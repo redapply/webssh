@@ -11,9 +11,12 @@ form = cgi.FieldStorage()
 if 'id' in form:
   pageId = form['id'].value
   desc = open('data/'+pageId,'r').read()
+  update_action = '<a href="update.py?id={}">update</a>'.format(pageId)
+
 else:
   pageId='Welcome to Web Python'
   desc = 'Hello, Python Web'
+  update_action=''
 
 
 print('''<!doctype html>
@@ -28,8 +31,9 @@ print('''<!doctype html>
     {listStr}
   </ol>
   <a href='create_re.py'>Create</a>
+  {update_action}
   <h2>{title}</h2>
   <p>{desc}</p>
 </body>
 </html>
-'''.format(title=pageId,desc=desc,listStr=listStr))
+'''.format(title=pageId,desc=desc,listStr=listStr,update_action=update_action))

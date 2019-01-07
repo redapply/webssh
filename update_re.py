@@ -6,7 +6,8 @@ print('Content-type: text/html; charset=UTF-8\n')
 dirfiles = os.listdir('data')
 listStr = ''
 for item in dirfiles:
-  listStr = listStr+'<li><a href="index_re.py?id={name}">{name}</a></li>'.format(name=item)
+  listStr = listStr + \
+      '<li><a href="index_re.py?id={name}">{name}</a></li>'.format(name=item)
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -29,13 +30,12 @@ print('''<!doctype html>
     {listStr}
   </ol>
   <a href='create_re.py'>Create</a>
-  <form action='process_create_re.py' method='post'>
-        <p><input type = "text" name="title" placeholder="title"></p>
-        <p><textarea rows="4" name="description" placeholder='description'></textarea></p>
+  <form action='process_update_re.py' method='post'>
+        <input type='hidden' name = 'pageId' value='{form_title}'>
+        <p><input type = "text" name="title" placeholder="title" value='{form_title}'></p>
+        <p><textarea rows="4" name="description" placeholder='description'>{form_desc}</textarea></p>
         <p><input type="submit"></p>
     </form>
-  <h2>{title}</h2>
-  <p>{desc}</p>
 </body>
 </html>
-'''.format(title=pageId, desc=desc, listStr=listStr))
+'''.format(title=pageId,listStr=listStr,form_title=pageId,form_desc=desc))
